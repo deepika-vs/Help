@@ -83,17 +83,35 @@
     
     NSMutableArray <HotSpotConfig *> *hotspotsArray = [[NSMutableArray alloc] init];
     double incremetFactor = 10;
-    for (int i = 0; i<3; i++) {
+    for (int i = 0; i<4; i++) {
         
         HotSpotConfig *hotspotConfig = [[HotSpotConfig alloc] init];
         
-        hotspotConfig.xPosition = [NSNumber numberWithDouble:(64+incremetFactor)];
-        hotspotConfig.yPosition = [NSNumber numberWithDouble:(64+incremetFactor)];
+        hotspotConfig.xPosition = [NSNumber numberWithDouble:(12+incremetFactor)];
+        hotspotConfig.yPosition = [NSNumber numberWithDouble:(100+incremetFactor)];
         hotspotConfig.width = [NSNumber numberWithDouble:64];
-        hotspotConfig.height = [NSNumber numberWithDouble:64];
+        hotspotConfig.height = [NSNumber numberWithDouble:32];
         
         hotspotConfig.tooltipMessage = @"Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!";
-        hotspotConfig.tooltipDirection = kToolTipTextDirectionRight;
+        switch (i) {
+            case 0:
+                hotspotConfig.tooltipDirection = kToolTipTextDirectionDown;
+                break;
+            case 1:
+                hotspotConfig.tooltipDirection = kToolTipTextDirectionUp;
+                break;
+
+            case 2:
+                hotspotConfig.tooltipDirection = kToolTipTextDirectionLeft;
+                break;
+            case 3:
+                hotspotConfig.tooltipDirection = kToolTipTextDirectionRight;
+                break;
+
+                
+            default:
+                break;
+        }
         hotspotConfig.action = @"back";
         
         [hotspotsArray addObject:hotspotConfig];
@@ -103,6 +121,43 @@
     imageDetail.hotspotsArray = hotspotsArray;
     [imagesArray addObject:imageDetail];
     _imageConfig.imagesArray = imagesArray;
+}
+
+-(void)createButtonWithFrame:(CGRect)frame{
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget: self
+               action: @selector(pushScreen:)
+     forControlEvents: UIControlEventTouchUpOutside];
+    [button setTitle:@"" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor blueColor];
+    button.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
+    button.userInteractionEnabled = YES;
+    [_imageView addSubview:button];
+    
+}
+
+-(void)setScalefactors{
+    
+    if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480 ) {
+        horizontalScaleFactor = [NSNumber numberWithFloat:1.0];
+        verticalScaleFactor = [NSNumber numberWithFloat:1.183];
+    }
+    else if (self.view.frame.size.width == 320 && self.view.frame.size.height == 568 ){
+        
+        horizontalScaleFactor = [NSNumber numberWithFloat:1.0];
+        verticalScaleFactor = [NSNumber numberWithFloat:1.0];
+    }
+    else if (self.view.frame.size.width == 375 && self.view.frame.size.height == 667 ){
+        
+        horizontalScaleFactor = [NSNumber numberWithFloat:1.171];
+        verticalScaleFactor = [NSNumber numberWithFloat:1.174];
+    }
+    else if (self.view.frame.size.width == 414 && self.view.frame.size.height == 736 ){
+        
+        horizontalScaleFactor = [NSNumber numberWithFloat:1.291];
+        verticalScaleFactor = [NSNumber numberWithFloat:1.295];
+    }
 }
 
 -(void)createToolTipTextViewForHotspot:(HotSpotConfig *)hotspotConfig{
@@ -149,42 +204,7 @@
     
     return origin;
 }
--(void)createButtonWithFrame:(CGRect)frame{
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button addTarget: self
-               action: @selector(pushScreen:)
-     forControlEvents: UIControlEventTouchUpOutside];
-    [button setTitle:@"" forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor blueColor];
-    button.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
-    button.userInteractionEnabled = YES;
-    [_imageView addSubview:button];
-    
-}
 
--(void)setScalefactors{
-    
-    if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480 ) {
-        horizontalScaleFactor = [NSNumber numberWithFloat:1.0];
-        verticalScaleFactor = [NSNumber numberWithFloat:1.183];
-    }
-    else if (self.view.frame.size.width == 320 && self.view.frame.size.height == 568 ){
-        
-        horizontalScaleFactor = [NSNumber numberWithFloat:1.0];
-        verticalScaleFactor = [NSNumber numberWithFloat:1.0];
-    }
-    else if (self.view.frame.size.width == 375 && self.view.frame.size.height == 667 ){
-        
-        horizontalScaleFactor = [NSNumber numberWithFloat:1.171];
-        verticalScaleFactor = [NSNumber numberWithFloat:1.174];
-    }
-    else if (self.view.frame.size.width == 414 && self.view.frame.size.height == 736 ){
-        
-        horizontalScaleFactor = [NSNumber numberWithFloat:1.291];
-        verticalScaleFactor = [NSNumber numberWithFloat:1.295];
-    }
-}
 
 #pragma mark - action Methods
 - (IBAction)closeButtonPressed:(id *)sender {

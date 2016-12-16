@@ -85,25 +85,27 @@
     }
     else if ([_direction isEqualToString:kToolTipTextDirectionLeft]){
         
-        [textLabel setFrame:CGRectMake(0 ,
-                                       0 + kArrowHeight,
-                                       self.frame.size.width - kArrowHeight,
-                                       self.frame.size.height)];
         double rads = DEGREES_TO_RADIANS(90);
         CGAffineTransform transform = CGAffineTransformRotate(CGAffineTransformIdentity, rads);
         textLabel.transform = transform;
         
+        [textLabel setFrame:CGRectMake(0 ,
+                                       0+ kArrowHeight ,
+                                       self.frame.size.height ,
+                                       self.frame.size.width - kArrowHeight)];
         
     }
     else if ([_direction isEqualToString:kToolTipTextDirectionRight]){
         
-        [textLabel setFrame:CGRectMake(0 ,
-                                       0 ,
-                                       self.frame.size.width - kArrowHeight,
-                                       self.frame.size.height)];
         double rads = DEGREES_TO_RADIANS(270);
         CGAffineTransform transform = CGAffineTransformRotate(CGAffineTransformIdentity, rads);
         textLabel.transform = transform;
+        [textLabel setFrame:CGRectMake(0 ,
+                                       0 +kArrowHeight,
+                                       self.frame.size.height,
+                                       self.frame.size.width - kArrowHeight
+                                       )];
+        
         
         
     }
