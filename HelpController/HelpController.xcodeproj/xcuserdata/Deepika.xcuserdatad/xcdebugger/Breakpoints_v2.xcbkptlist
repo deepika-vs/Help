@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HelpController/ToolTipTextView/ToolTipTextView.m"
-            timestampString = "503582309.814169"
+            filePath = "HelpController/HelpViewController/HelpViewController.m"
+            timestampString = "503823606.865168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-addandRotateTextLabel"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "-pushScreen:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HelpController/HelpViewController/HelpViewController.m"
-            timestampString = "503582965.723728"
+            timestampString = "503823606.865168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "-closeButtonPressed:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,28 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HelpController/HelpViewController/HelpViewController.m"
-            timestampString = "503583997.335972"
+            timestampString = "503823606.865168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "-getTooTipTextOriginForHotSpotConfig:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HelpController/HelpViewController/HelpViewController.m"
-            timestampString = "503583997.335972"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-getTooTipTextOriginForHotSpotConfig:"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "-pushScreen:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

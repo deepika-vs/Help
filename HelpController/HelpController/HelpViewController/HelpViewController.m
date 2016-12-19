@@ -124,16 +124,17 @@
 }
 
 -(void)createButtonWithFrame:(CGRect)frame{
+
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button addTarget: self
-               action: @selector(pushScreen:)
-     forControlEvents: UIControlEventTouchUpOutside];
-    [button setTitle:@"" forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor blueColor];
-    button.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
-    button.userInteractionEnabled = YES;
-    [_imageView addSubview:button];
+    UIButton *addButton = [[UIButton alloc] init];
+    [addButton setTitle:@"" forState:UIControlStateNormal];
+    [addButton setBackgroundColor:[UIColor blueColor]];
+    [addButton setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)];
+
+    [addButton addTarget:self action:@selector(pushScreen:) forControlEvents:UIControlEventTouchUpInside];
+    [_imageView addSubview:addButton];
+    [self.imageView bringSubviewToFront:addButton];
+    [self.imageView setUserInteractionEnabled:YES];
     
 }
 
