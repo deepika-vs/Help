@@ -1,0 +1,109 @@
+{
+    "images":[{
+              "name": "image1.png",
+              "id": "1",
+              "hotSpots":[
+                          { "x":1,
+                          "y":2,
+                          "width":50,
+                          "height":30,
+                          "TooltipMessage":"image1.png Message for 1st screen",
+                          "tooltipDirection":"up",
+                          "action":"2"
+                          },
+                          { "x":100,
+                          "y":200,
+                          "width":50,
+                          "height":30,
+                          "TooltipMessage":"image1.png Message for 1st screen.image1.png Message for 1st screen",
+                          "tooltipDirection":"down",
+                          "action":"3"
+                          }
+                          
+                          
+                          
+                          ]
+              },
+              {
+              "name": "image2.png",
+              "id": "2",
+              "hotSpots":[
+                          { "x":1,
+                          "y":2,
+                          "width":100,
+                          "height":60,
+                          "TooltipMessage":"BACK.image2.png Message for 2nd screen",
+                          "tooltipDirection":"down",
+                          "action":"back"
+                          },
+                          { "x":100,
+                          "y":200,
+                          "width":100,
+                          "height":60,
+                          "TooltipMessage":"image2.png Message for 2nd screenimage2.png Message for 2nd screenimage2.png Message for 2nd screen",
+                          "tooltipDirection":"down",
+                          "action":"1"
+                          },
+                          { "x":100,
+                          "y":300,
+                          "width":100,
+                          "height":60,
+                          "TooltipMessage":"image2.png Message for 2nd screenimage2.png Message for 2nd screenimage2.png Message for 2nd screen",
+                          "tooltipDirection":"down",
+                          "action":"4"
+                          }
+                          
+                          
+                          
+                          ]
+              },
+              {
+              "name": "image3.png",
+              "id": "3",
+              "hotSpots":[
+                          { "x":10,
+                          "y":200,
+                          "width":30,
+                          "height":50,
+                          "TooltipMessage":"image3.png Message for 3rd screen",
+                          "tooltipDirection":"right",
+                          "action":"3"
+                          }
+                          
+                          
+                          
+                          ]
+              },{
+              "name": "image4.png",
+              "id": "4",
+              "hotSpots":[
+                          { "x":100,
+                          "y":20,
+                          "width":150,
+                          "height":20,
+                          "TooltipMessage":"image4.png Message for 4th screen",
+                          "tooltipDirection":"left",
+                          "action":"4"
+                          }
+                          
+                          
+                          
+                          ]
+              },{
+              "name": "image5.png",
+              "id": "5",
+              "hotSpots":[
+                          { "x":10,
+                          "y":300,
+                          "width":200,
+                          "height":40,
+                          "TooltipMessage":"image5.png Message for 5th screen",
+                          "tooltipDirection":"up",
+                          "action":"2"
+                          }
+                          
+                          
+                          
+                          ]
+              }
+              ]}

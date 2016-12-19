@@ -31,6 +31,7 @@
 		80D6DCAA1E03E54200BA4605 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6DCA91E03E54200BA4605 /* Utility.m */; };
 		80D6DCAB1E03E54200BA4605 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6DCA91E03E54200BA4605 /* Utility.m */; };
 		80D6DCAC1E03E54200BA4605 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D6DCA91E03E54200BA4605 /* Utility.m */; };
+		80F231B71E07C87C004B7DA6 /* HelpJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 80F231B61E07C87C004B7DA6 /* HelpJson.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		80D6DCA41E03C59F00BA4605 /* HotSpotConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpotConfig.m; sourceTree = "<group>"; };
 		80D6DCA81E03E54200BA4605 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		80D6DCA91E03E54200BA4605 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		80F231B61E07C87C004B7DA6 /* HelpJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HelpJson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		80D160871E02B36000158B23 /* HelpController */ = {
 			isa = PBXGroup;
 			children = (
+				80F231B61E07C87C004B7DA6 /* HelpJson.json */,
 				80D1608B1E02B36000158B23 /* AppDelegate.h */,
 				80D1608C1E02B36000158B23 /* AppDelegate.m */,
 				80D1608E1E02B36000158B23 /* ViewController.h */,
@@ -329,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D160981E02B36000158B23 /* LaunchScreen.storyboard in Resources */,
+				80F231B71E07C87C004B7DA6 /* HelpJson.json in Resources */,
 				80D160BD1E02B77100158B23 /* image1.png in Resources */,
 				80D160951E02B36000158B23 /* Assets.xcassets in Resources */,
 				80D160931E02B36000158B23 /* Main.storyboard in Resources */,

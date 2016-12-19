@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) ImageConfig *imageConfig;
 @property (assign ,nonatomic) CGFloat height;
+@property (strong, nonatomic) NSArray <ImageConfig *> *imageConfigArray;
 
 @end
 
@@ -74,48 +75,48 @@
 
 -(void)configureData{
     
+    
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"HelpJson" ofType:@"json"];
+    
+    //création d'un string avec le contenu du JSON
+    NSString *helpJson = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+    NSData *data = [helpJson dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *e = nil;
+    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &e];
+    
+    if (!jsonObject) {
+        NSLog(@"Error parsing JSON: %@", e);
+    } else {
+     
+            _imageConfigArray = [jsonObject valueForKey:@"images"];
+    
+    }
+    
     _imageConfig = [[ImageConfig alloc] init];
     NSMutableArray <ImageDetail *> *imagesArray = [[NSMutableArray alloc] init];
     
     ImageDetail *imageDetail = [[ImageDetail alloc] init];
-    imageDetail.name = @"image1.png";
-    imageDetail.ID = @"123";
-    
+    imageDetail.name = [[_imageConfigArray objectAtIndex:0] valueForKey:@"name"];
+    imageDetail.ID =  [[_imageConfigArray objectAtIndex:0] valueForKey:@"id"];
+    NSArray *array =  [[_imageConfigArray objectAtIndex:0] valueForKey:@"hotSpots"];
     NSMutableArray <HotSpotConfig *> *hotspotsArray = [[NSMutableArray alloc] init];
-    double incremetFactor = 10;
-    for (int i = 0; i<4; i++) {
+    
+    
+    for (NSDictionary *item in array) {
         
         HotSpotConfig *hotspotConfig = [[HotSpotConfig alloc] init];
         
-        hotspotConfig.xPosition = [NSNumber numberWithDouble:(12+incremetFactor)];
-        hotspotConfig.yPosition = [NSNumber numberWithDouble:(100+incremetFactor)];
-        hotspotConfig.width = [NSNumber numberWithDouble:64];
-        hotspotConfig.height = [NSNumber numberWithDouble:32];
+        hotspotConfig.xPosition = [item valueForKey:@"x"];
+        hotspotConfig.yPosition = [item valueForKey:@"y"];
+        hotspotConfig.width = [item valueForKey:@"width"];
+        hotspotConfig.height = [item valueForKey:@"height"];
         
-        hotspotConfig.tooltipMessage = @"Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!Here you Go!";
-        switch (i) {
-            case 0:
-                hotspotConfig.tooltipDirection = kToolTipTextDirectionDown;
-                break;
-            case 1:
-                hotspotConfig.tooltipDirection = kToolTipTextDirectionUp;
-                break;
-
-            case 2:
-                hotspotConfig.tooltipDirection = kToolTipTextDirectionLeft;
-                break;
-            case 3:
-                hotspotConfig.tooltipDirection = kToolTipTextDirectionRight;
-                break;
-
-                
-            default:
-                break;
-        }
-        hotspotConfig.action = @"back";
+        hotspotConfig.tooltipMessage = [item valueForKey:@"TooltipMessage"];
+       hotspotConfig.tooltipMessage = [item valueForKey:@"tooltipDirection"];
+        hotspotConfig.action =[item valueForKey:@"action"];
         
         [hotspotsArray addObject:hotspotConfig];
-        incremetFactor +=64;
     }
    
     imageDetail.hotspotsArray = hotspotsArray;
@@ -209,8 +210,7 @@
 
 #pragma mark - action Methods
 - (IBAction)closeButtonPressed:(id *)sender {
-    
-    [self pushScreen:sender];
+     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - selector Methods
