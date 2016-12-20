@@ -49,7 +49,7 @@
     [fillPath closePath];
     
     CGContextAddPath(context, fillPath.CGPath);
-    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
     CGContextFillPath(context);
     [self rotateView];
     [self addandRotateTextLabel];

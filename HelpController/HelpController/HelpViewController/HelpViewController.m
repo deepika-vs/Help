@@ -168,9 +168,16 @@
     HelpViewController *controller = (HelpViewController *)[[UIStoryboard storyboardWithName:@"Main"
                                                                                   bundle:NULL] instantiateViewControllerWithIdentifier:@"HelpView"];
     NSString *action = [[_imageDetail.hotspotsArray objectAtIndex:buttonIndex] action];
-    controller.imageDetail = [_imageConfig.imagesArray objectAtIndex:[action intValue]];
-    controller.imageConfig = _imageConfig;
-    [self.navigationController pushViewController:controller animated:NO];
+    if ([action isEqualToString:@"back"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        controller.imageDetail = [_imageConfig.imagesArray objectAtIndex:[action intValue]-1];
+        controller.imageConfig = _imageConfig;
+        [self.navigationController pushViewController:controller animated:NO];
+    }
+    
+    
 }
 
 

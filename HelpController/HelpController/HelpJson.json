@@ -17,7 +17,7 @@
                           "height":30,
                           "TooltipMessage":"image1.png Message for 1st screen.image1.png Message for 1st screen",
                           "tooltipDirection":"down",
-                          "action":"3"
+                          "action":"2"
                           }
                           
                           
@@ -50,7 +50,7 @@
                           "height":60,
                           "TooltipMessage":"image2.png Message for 2nd screenimage2.png Message for 2nd screenimage2.png Message for 2nd screen",
                           "tooltipDirection":"down",
-                          "action":"4"
+                          "action":"2"
                           }
                           
                           
@@ -67,7 +67,7 @@
                           "height":50,
                           "TooltipMessage":"image3.png Message for 3rd screen",
                           "tooltipDirection":"right",
-                          "action":"3"
+                          "action":"5"
                           }
                           
                           

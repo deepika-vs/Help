@@ -76,7 +76,7 @@
             hotspotConfig.height = [item valueForKey:@"height"];
             
             hotspotConfig.tooltipMessage = [item valueForKey:@"TooltipMessage"];
-            hotspotConfig.tooltipMessage = [item valueForKey:@"tooltipDirection"];
+            hotspotConfig.tooltipDirection = [item valueForKey:@"tooltipDirection"];
             hotspotConfig.action =[item valueForKey:@"action"];
             
             [hotspotsArray addObject:hotspotConfig];
