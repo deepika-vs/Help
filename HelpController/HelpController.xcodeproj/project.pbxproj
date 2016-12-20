@@ -10,6 +10,7 @@
 		80B9F6DF1E040A1B00B4FFD0 /* ToolTipTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B9F6DE1E040A1B00B4FFD0 /* ToolTipTextView.m */; };
 		80B9F6E01E040A1B00B4FFD0 /* ToolTipTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B9F6DE1E040A1B00B4FFD0 /* ToolTipTextView.m */; };
 		80B9F6E11E040A1B00B4FFD0 /* ToolTipTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B9F6DE1E040A1B00B4FFD0 /* ToolTipTextView.m */; };
+		80BA22791E09012A00C0B47C /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = 80BA22781E09012A00C0B47C /* image2.png */; };
 		80D1608A1E02B36000158B23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D160891E02B36000158B23 /* main.m */; };
 		80D1608D1E02B36000158B23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D1608C1E02B36000158B23 /* AppDelegate.m */; };
 		80D160901E02B36000158B23 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D1608F1E02B36000158B23 /* ViewController.m */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		80B9F6DD1E040A1B00B4FFD0 /* ToolTipTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolTipTextView.h; sourceTree = "<group>"; };
 		80B9F6DE1E040A1B00B4FFD0 /* ToolTipTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolTipTextView.m; sourceTree = "<group>"; };
+		80BA22781E09012A00C0B47C /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 		80D160851E02B36000158B23 /* HelpController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D160891E02B36000158B23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		80D1608B1E02B36000158B23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		80D160BB1E02B77100158B23 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				80BA22781E09012A00C0B47C /* image2.png */,
 				80D160BC1E02B77100158B23 /* image1.png */,
 			);
 			path = Images;
@@ -333,6 +336,7 @@
 			files = (
 				80D160981E02B36000158B23 /* LaunchScreen.storyboard in Resources */,
 				80F231B71E07C87C004B7DA6 /* HelpJson.json in Resources */,
+				80BA22791E09012A00C0B47C /* image2.png in Resources */,
 				80D160BD1E02B77100158B23 /* image1.png in Resources */,
 				80D160951E02B36000158B23 /* Assets.xcassets in Resources */,
 				80D160931E02B36000158B23 /* Main.storyboard in Resources */,

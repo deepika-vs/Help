@@ -17,7 +17,7 @@
 
 #define kButtonToToolTipTextViewPadding 10
 #define kArrowHeight 10
-
+#define kButtonTag 100
 #define kFontSize14 14
 #define kChatFont  kRobotoRegular(kFontSize14)
 

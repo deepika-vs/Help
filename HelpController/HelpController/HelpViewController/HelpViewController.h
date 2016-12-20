@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImageConfig.h"
 
 @interface HelpViewController : UIViewController
+
+@property (strong, nonatomic) ImageDetail *imageDetail;
+@property (assign ,nonatomic) CGFloat height;
+@property (strong, nonatomic) ImageConfig *imageConfig;
 
 @end

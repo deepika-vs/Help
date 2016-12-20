@@ -15,12 +15,41 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Pwu-es-V8Q"/>
+                        <segue destination="bz2-xm-fbs" kind="relationship" relationship="rootViewController" id="bx5-We-h28"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCW-5M-Rgp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-623" y="-223"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zXR-BQ-wpz">
+            <objects>
+                <viewController id="bz2-xm-fbs" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pSQ-QI-N3d"/>
+                        <viewControllerLayoutGuide type="bottom" id="3mF-jY-msC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D7y-be-ccv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XM-aO-Pag">
+                                <frame key="frameInset" minX="164" minY="298" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Help"/>
+                                <connections>
+                                    <action selector="helpButtonPressed:" destination="bz2-xm-fbs" eventType="touchUpInside" id="FMp-SR-wRS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XuP-Dl-DRD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PDp-Ax-09k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136" y="-468"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="tne-QT-ifu">

@@ -8,16 +8,13 @@
 
 #import "HelpViewController.h"
 #import "Constants.h"
-#import "ImageConfig.h"
+
 #import "ToolTipTextView.h"
 #import "Utility.h"
 
 @interface HelpViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) ImageConfig *imageConfig;
-@property (assign ,nonatomic) CGFloat height;
-@property (strong, nonatomic) NSArray <ImageConfig *> *imageConfigArray;
 
 @end
 
@@ -31,31 +28,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self configureData];
-    
-     UIImage *image = [UIImage imageNamed:[[_imageConfig.imagesArray objectAtIndex:0] name] ];
-    [_imageView setFrame:CGRectMake(0, kNavBarHeight,self.view.frame.size.width*.85 , self.view.frame.size.height*.85)];
-    [_imageView setImage:image];
     
     [self setScalefactors];
     
+    NSArray *hotspotsArray = _imageDetail.hotspotsArray;
     
-
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    
-   
-    NSArray *hotspotsArray = [[_imageConfig.imagesArray objectAtIndex:0] hotspotsArray];
-    
-    for (HotSpotConfig *hotspotConfig in hotspotsArray) {
+    for (int i = 0; i<[hotspotsArray count]; i++ ) {
+        HotSpotConfig *hotspotConfig = [hotspotsArray objectAtIndex:i];
         
-     
         CGRect frame = CGRectMake([hotspotConfig.xPosition doubleValue]*[horizontalScaleFactor doubleValue],
                                   [hotspotConfig.yPosition doubleValue]*[verticalScaleFactor doubleValue],
                                   [hotspotConfig.width doubleValue]*[horizontalScaleFactor doubleValue],
                                   [hotspotConfig.height doubleValue]*[verticalScaleFactor doubleValue]);
-        [self createButtonWithFrame:frame];
+        [self createButtonWithFrame:frame forIndex:i];
         [hotspotConfig setXPosition:[NSNumber numberWithDouble:frame.origin.x]];
         [hotspotConfig setYPosition:[NSNumber numberWithDouble:frame.origin.y]];
         [hotspotConfig setWidth:[NSNumber numberWithDouble:frame.size.width]];
@@ -63,6 +48,18 @@
         
         [self createToolTipTextViewForHotspot:hotspotConfig];
     }
+    
+
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    UIImage *image = [UIImage imageNamed:_imageDetail.name ];
+    [_imageView setFrame:CGRectMake(0, kNavBarHeight,self.view.frame.size.width*.85 , self.view.frame.size.height*.85)];
+    [_imageView setImage:image];
+    
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,58 +70,7 @@
 
 #pragma mark - private methods
 
--(void)configureData{
-    
-    
-    
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"HelpJson" ofType:@"json"];
-    
-    //création d'un string avec le contenu du JSON
-    NSString *helpJson = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
-    NSData *data = [helpJson dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *e = nil;
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &e];
-    
-    if (!jsonObject) {
-        NSLog(@"Error parsing JSON: %@", e);
-    } else {
-     
-            _imageConfigArray = [jsonObject valueForKey:@"images"];
-    
-    }
-    
-    _imageConfig = [[ImageConfig alloc] init];
-    NSMutableArray <ImageDetail *> *imagesArray = [[NSMutableArray alloc] init];
-    
-    ImageDetail *imageDetail = [[ImageDetail alloc] init];
-    imageDetail.name = [[_imageConfigArray objectAtIndex:0] valueForKey:@"name"];
-    imageDetail.ID =  [[_imageConfigArray objectAtIndex:0] valueForKey:@"id"];
-    NSArray *array =  [[_imageConfigArray objectAtIndex:0] valueForKey:@"hotSpots"];
-    NSMutableArray <HotSpotConfig *> *hotspotsArray = [[NSMutableArray alloc] init];
-    
-    
-    for (NSDictionary *item in array) {
-        
-        HotSpotConfig *hotspotConfig = [[HotSpotConfig alloc] init];
-        
-        hotspotConfig.xPosition = [item valueForKey:@"x"];
-        hotspotConfig.yPosition = [item valueForKey:@"y"];
-        hotspotConfig.width = [item valueForKey:@"width"];
-        hotspotConfig.height = [item valueForKey:@"height"];
-        
-        hotspotConfig.tooltipMessage = [item valueForKey:@"TooltipMessage"];
-       hotspotConfig.tooltipMessage = [item valueForKey:@"tooltipDirection"];
-        hotspotConfig.action =[item valueForKey:@"action"];
-        
-        [hotspotsArray addObject:hotspotConfig];
-    }
-   
-    imageDetail.hotspotsArray = hotspotsArray;
-    [imagesArray addObject:imageDetail];
-    _imageConfig.imagesArray = imagesArray;
-}
-
--(void)createButtonWithFrame:(CGRect)frame{
+-(void)createButtonWithFrame:(CGRect)frame forIndex:(int )index{
 
     
     UIButton *addButton = [[UIButton alloc] init];
@@ -132,6 +78,7 @@
     [addButton setBackgroundColor:[UIColor blueColor]];
     [addButton setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)];
 
+    addButton.tag = kButtonTag + index;
     [addButton addTarget:self action:@selector(pushScreen:) forControlEvents:UIControlEventTouchUpInside];
     [_imageView addSubview:addButton];
     [self.imageView bringSubviewToFront:addButton];
@@ -210,14 +157,19 @@
 
 #pragma mark - action Methods
 - (IBAction)closeButtonPressed:(id *)sender {
+    
      [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - selector Methods
 
--(void)pushScreen:(id *)sender{
+-(void)pushScreen:(UIButton *)sender{
+    int buttonIndex = sender.tag % kButtonTag;
     HelpViewController *controller = (HelpViewController *)[[UIStoryboard storyboardWithName:@"Main"
                                                                                   bundle:NULL] instantiateViewControllerWithIdentifier:@"HelpView"];
+    NSString *action = [[_imageDetail.hotspotsArray objectAtIndex:buttonIndex] action];
+    controller.imageDetail = [_imageConfig.imagesArray objectAtIndex:[action intValue]];
+    controller.imageConfig = _imageConfig;
     [self.navigationController pushViewController:controller animated:NO];
 }
 
