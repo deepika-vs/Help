@@ -28,7 +28,7 @@
               "name": "image2.png",
               "id": "2",
               "hotSpots":[
-                          { "x":150,
+                          { "x":0,
                           "y":220,
                           "width":100,
                           "height":60,
@@ -41,15 +41,15 @@
                           "width":100,
                           "height":60,
                           "TooltipMessage":"image2.png Message for 2nd screenimage2.png Message for 2nd screenimage2.png Message for 2nd screen",
-                          "tooltipDirection":"down",
+                          "tooltipDirection":"up",
                           "action":"1"
                           },
-                          { "x":100,
+                          { "x":200,
                           "y":300,
                           "width":100,
                           "height":60,
                           "TooltipMessage":"image2.png Message for 2nd screenimage2.png Message for 2nd screenimage2.png Message for 2nd screen",
-                          "tooltipDirection":"down",
+                          "tooltipDirection":"left",
                           "action":"2"
                           }
                           

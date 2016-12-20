@@ -94,7 +94,7 @@
     
    
     
-    [self.navigationController pushViewController:controller animated:NO];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
