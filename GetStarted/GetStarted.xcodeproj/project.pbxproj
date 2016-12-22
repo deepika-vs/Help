@@ -103,9 +103,9 @@
 		808D84B71C96E2D30090DAB6 = {
 			isa = PBXGroup;
 			children = (
-				808D84C21C96E2D30090DAB6 /* PageControlDemo */,
-				808D84DC1C96E2D40090DAB6 /* PageControlDemoTests */,
-				808D84E71C96E2D40090DAB6 /* PageControlDemoUITests */,
+				808D84C21C96E2D30090DAB6 /* GetStarted */,
+				808D84DC1C96E2D40090DAB6 /* GetStartedTests */,
+				808D84E71C96E2D40090DAB6 /* GetStartedUITests */,
 				808D84C11C96E2D30090DAB6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,7 +120,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		808D84C21C96E2D30090DAB6 /* PageControlDemo */ = {
+		808D84C21C96E2D30090DAB6 /* GetStarted */ = {
 			isa = PBXGroup;
 			children = (
 				808D84C61C96E2D40090DAB6 /* AppDelegate.h */,
@@ -137,6 +137,7 @@
 				808D84D41C96E2D40090DAB6 /* Info.plist */,
 				808D84C31C96E2D40090DAB6 /* Supporting Files */,
 			);
+			name = GetStarted;
 			path = PageControlDemo;
 			sourceTree = "<group>";
 		};
@@ -148,21 +149,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		808D84DC1C96E2D40090DAB6 /* PageControlDemoTests */ = {
+		808D84DC1C96E2D40090DAB6 /* GetStartedTests */ = {
 			isa = PBXGroup;
 			children = (
 				808D84DD1C96E2D40090DAB6 /* PageControlDemoTests.m */,
 				808D84DF1C96E2D40090DAB6 /* Info.plist */,
 			);
+			name = GetStartedTests;
 			path = PageControlDemoTests;
 			sourceTree = "<group>";
 		};
-		808D84E71C96E2D40090DAB6 /* PageControlDemoUITests */ = {
+		808D84E71C96E2D40090DAB6 /* GetStartedUITests */ = {
 			isa = PBXGroup;
 			children = (
 				808D84E81C96E2D40090DAB6 /* PageControlDemoUITests.m */,
 				808D84EA1C96E2D40090DAB6 /* Info.plist */,
 			);
+			name = GetStartedUITests;
 			path = PageControlDemoUITests;
 			sourceTree = "<group>";
 		};
