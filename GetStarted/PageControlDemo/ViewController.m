@@ -11,6 +11,8 @@
 
 #define KFixUIHeight 232
 #define kDetailPageViewNibName @"DetailPageView"
+#define kSkipText @"Skip"
+#define kFinishText @"Finish"
 
 @interface ViewController () <UIScrollViewDelegate ,UIPageViewControllerDelegate>
 {
@@ -32,46 +34,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _imagesArray = @[@"share.png",@"share.png",@"share.png",@"share.png",@"share.png"];
-    _textArray = @[@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.",@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.",@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.", @"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.", @"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs."];
-    scrollView.delegate = self;
-    scrollView.pagingEnabled = YES;
-    xPoiter = 0;
-    myControl.numberOfPages = [_imagesArray count];
-    skipButton.layer.cornerRadius = 5;
-    
-    for(i  =0 ;i <[_imagesArray count]; i++)
-    {
-        UIView *placeHolderView = [[UILabel alloc] initWithFrame:CGRectMake(xPoiter,
-                                                                       0,
-                                                                       self.view.frame.size.width ,
-                                                                       self.view.frame.size.height-KFixUIHeight)];
-        
-        
-        placeHolderView.backgroundColor = [UIColor clearColor];
-        DetailPageView *detailPageView = [[[NSBundle mainBundle] loadNibNamed:kDetailPageViewNibName owner:self options:nil] firstObject];
-        
-        [detailPageView updateTextLabelWithText:[_textArray objectAtIndex:i] AndImageViewWithImage:[UIImage imageNamed:[_imagesArray objectAtIndex:i]]];
-        [detailPageView setFrame:CGRectMake(0,
-                                            0,
-                                            placeHolderView.frame.size.width,
-                                            placeHolderView.frame.size.height)];
 
-        [placeHolderView addSubview:detailPageView];
-        [scrollView addSubview:placeHolderView];
-
-        xPoiter += self.view.frame.size.width;
-        
-    }
-    
-    scrollView.contentOffset =CGPointMake(0, 0) ;
-    scrollView.contentSize = CGSizeMake(xPoiter, self.view.frame.size.height-KFixUIHeight);
-    myControl.currentPage =0;
-    [myControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
-   
-   
-   
+    [self configureData];
+    [self configureUI];
 }
 
 
@@ -80,7 +45,57 @@
     // Dispose of any resources that can be recreated.myControl.currentPage *
 }
 
-#pragma mark -
+
+#pragma  mark - private methods
+
+-(void)configureData{
+    
+    _imagesArray = @[@"share.png",@"share.png",@"share.png",@"share.png",@"share.png"];
+    _textArray = @[@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.",@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.",@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.", @"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.", @"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs."];
+
+}
+
+-(void)configureUI{
+    scrollView.delegate = self;
+    scrollView.pagingEnabled = YES;
+    skipButton.layer.cornerRadius = 5;
+    
+    myControl.numberOfPages = [_imagesArray count];
+    myControl.currentPage =0;
+    [myControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+    
+    xPoiter = 0;
+    for(i  =0 ;i <[_imagesArray count]; i++)
+    {
+        UIView *placeHolderView = [[UILabel alloc] initWithFrame:CGRectMake(xPoiter,
+                                                                            0,
+                                                                            self.view.frame.size.width ,
+                                                                            self.view.frame.size.height-KFixUIHeight)];
+        placeHolderView.backgroundColor = [UIColor clearColor];
+        DetailPageView *detailPageView = [[[NSBundle mainBundle]
+                                           loadNibNamed:kDetailPageViewNibName
+                                           owner:self
+                                           options:nil]
+                                          firstObject];
+        [detailPageView updateTextLabelWithText:[_textArray objectAtIndex:i]
+                          AndImageViewWithImage:[UIImage
+                                                 imageNamed:[_imagesArray objectAtIndex:i]]];
+        [detailPageView setFrame:CGRectMake(0,
+                                            0,
+                                            placeHolderView.frame.size.width,
+                                            placeHolderView.frame.size.height)];
+        
+        [placeHolderView addSubview:detailPageView];
+        [scrollView addSubview:placeHolderView];
+        
+        xPoiter += self.view.frame.size.width;
+    }
+    scrollView.contentOffset =CGPointMake(0, 0) ;
+    scrollView.contentSize = CGSizeMake(xPoiter, self.view.frame.size.height-KFixUIHeight);
+}
+
+
+#pragma mark - scroolViewDelegate methods
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)thisScrollView{
@@ -93,18 +108,16 @@
 
     if(myControl.currentPage < [_imagesArray count]-1)
     {
-        [skipButton setTitle:@"SKIP" forState:UIControlStateNormal];
+        [skipButton setTitle:[kSkipText uppercaseString] forState:UIControlStateNormal];
     }
     if(myControl.currentPage == [_imagesArray count] - 1)
     {
-        [skipButton setTitle:@"FINISH" forState:UIControlStateNormal];
+        [skipButton setTitle:[kFinishText uppercaseString] forState:UIControlStateNormal];
     }
     
 }
 
-
-
-
+#pragma mark - selector methods
 
 - (void)changePage:(id)sender
 {
@@ -115,7 +128,7 @@
    
 }
 
-
+#pragma mark - action methods
 - (IBAction)skipButtonPressed:(UIButton *)sender {
     
     
