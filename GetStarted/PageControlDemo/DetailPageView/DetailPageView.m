@@ -10,9 +10,7 @@
 
 @implementation DetailPageView{
     
-
     __weak IBOutlet UILabel *textLabel;
-    
     __weak IBOutlet UIImageView *imageView;
 }
 

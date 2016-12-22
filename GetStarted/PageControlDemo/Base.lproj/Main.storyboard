@@ -92,8 +92,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="Scroller" destination="KxT-Qu-CRN" id="fSL-g6-MUx"/>
                         <outlet property="myControl" destination="NvJ-EC-VxY" id="VJf-y6-UYK"/>
+                        <outlet property="scrollView" destination="KxT-Qu-CRN" id="4lR-xl-5pU"/>
                         <outlet property="skipButton" destination="kvf-X3-kiz" id="SkB-yQ-x6C"/>
                     </connections>
                 </viewController>

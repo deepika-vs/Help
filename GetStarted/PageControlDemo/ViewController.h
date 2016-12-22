@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UIScrollViewDelegate ,UIPageViewControllerDelegate>
-{
-   IBOutlet UIPageControl *myControl;
-    IBOutlet UIScrollView *Scroller;
-    NSArray *imagesArray;
-    
-}
+@interface ViewController : UIViewController
+
+@property (strong, nonatomic) NSArray *imagesArray;
+@property (strong, nonatomic) NSArray *textArray;
 
 @end
 
