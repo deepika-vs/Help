@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern.png" translatesAutoresizingMaskIntoConstraints="NO" id="EGu-M9-qTW">
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WiFi Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocv-LW-cbW">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="103" id="LiT-Kp-jVS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KxT-Qu-CRN">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvf-X3-kiz">
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="tsJ-q0-Jfe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xr-9w-V2o"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="NvJ-EC-VxY">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="fhZ-Sk-XJ9"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="0.68229719219999996" green="0.64510054880000001" blue="0.83687333659999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.26743418559999999" green="0.074170645389999998" blue="0.73017241379999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kvf-X3-kiz" firstAttribute="leading" secondItem="EGu-M9-qTW" secondAttribute="leading" constant="31" id="0h3-N8-0g5"/>
+                            <constraint firstItem="NvJ-EC-VxY" firstAttribute="trailing" secondItem="EGu-M9-qTW" secondAttribute="trailing" constant="-6" id="0rj-pz-nGd"/>
+                            <constraint firstItem="EGu-M9-qTW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="5lB-zH-vzE"/>
+                            <constraint firstItem="ocv-LW-cbW" firstAttribute="leading" secondItem="EGu-M9-qTW" secondAttribute="leading" id="Fko-Pe-Nbh"/>
+                            <constraint firstItem="KxT-Qu-CRN" firstAttribute="leading" secondItem="EGu-M9-qTW" secondAttribute="leading" id="K8e-5f-9HC"/>
+                            <constraint firstItem="ocv-LW-cbW" firstAttribute="trailing" secondItem="EGu-M9-qTW" secondAttribute="trailing" id="KYB-eT-yr0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EGu-M9-qTW" secondAttribute="trailing" constant="-16" id="QaV-60-Tj8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EGu-M9-qTW" secondAttribute="bottom" id="S4k-Wg-CMI"/>
+                            <constraint firstItem="KxT-Qu-CRN" firstAttribute="top" secondItem="ocv-LW-cbW" secondAttribute="bottom" constant="-3" id="TF4-jw-gpc"/>
+                            <constraint firstItem="kvf-X3-kiz" firstAttribute="bottom" secondItem="EGu-M9-qTW" secondAttribute="bottom" constant="-20" id="a7u-W0-Zdk"/>
+                            <constraint firstItem="kvf-X3-kiz" firstAttribute="trailing" secondItem="EGu-M9-qTW" secondAttribute="trailing" constant="-31" id="bEc-MS-NBn"/>
+                            <constraint firstItem="NvJ-EC-VxY" firstAttribute="top" secondItem="KxT-Qu-CRN" secondAttribute="bottom" constant="8" id="c6D-Br-JpS"/>
+                            <constraint firstItem="KxT-Qu-CRN" firstAttribute="trailing" secondItem="EGu-M9-qTW" secondAttribute="trailing" id="d7N-JG-hiy"/>
+                            <constraint firstItem="EGu-M9-qTW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="eHi-Oi-Exs"/>
+                            <constraint firstItem="ocv-LW-cbW" firstAttribute="top" secondItem="EGu-M9-qTW" secondAttribute="top" id="gWA-vJ-Kcj"/>
+                            <constraint firstItem="kvf-X3-kiz" firstAttribute="top" secondItem="NvJ-EC-VxY" secondAttribute="bottom" constant="13" id="nPO-Ry-d4c"/>
+                            <constraint firstItem="NvJ-EC-VxY" firstAttribute="leading" secondItem="EGu-M9-qTW" secondAttribute="leading" id="zWm-Ri-3Z8"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KxT-Qu-CRN"/>
+                                <exclude reference="NvJ-EC-VxY"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="KxT-Qu-CRN"/>
+                                <include reference="NvJ-EC-VxY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="Scroller" destination="KxT-Qu-CRN" id="fSL-g6-MUx"/>
+                        <outlet property="myControl" destination="NvJ-EC-VxY" id="VJf-y6-UYK"/>
+                        <outlet property="skipButton" destination="kvf-X3-kiz" id="SkB-yQ-x6C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244" y="312.59370314842579"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pattern.png" width="1500" height="2668"/>
+    </resources>
+</document>
