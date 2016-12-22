@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PageControlDemo/ViewController.m"
-            timestampString = "504090713.218279"
+            timestampString = "504091524.618737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "-skipButtonPressed:"
             landmarkType = "7">
          </BreakpointContent>

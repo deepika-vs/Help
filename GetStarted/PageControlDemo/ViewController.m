@@ -33,11 +33,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _imagesArray = @[@"share.png",@"share.png",@"share.png",@"share.png"];
-    _textArray = @[@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.",@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.",@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.", @"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs."];
+    _imagesArray = @[@"share.png",@"share.png",@"share.png",@"share.png",@"share.png"];
+    _textArray = @[@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.",@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.",@"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.", @"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs.", @"Applicant is now ready with the complete set of application that includes one filled-in, signed, photo-affixed PAN Application form endorsed with payment confirmation alongwith the three supporting documentary proofs."];
     scrollView.delegate = self;
     scrollView.pagingEnabled = YES;
     xPoiter = 0;
+    myControl.numberOfPages = [_imagesArray count];
     skipButton.layer.cornerRadius = 5;
     
     for(i  =0 ;i <[_imagesArray count]; i++)
@@ -90,11 +91,11 @@
     
     myControl.currentPage =page;
 
-    if(myControl.currentPage < 3)
+    if(myControl.currentPage < [_imagesArray count]-1)
     {
         [skipButton setTitle:@"SKIP" forState:UIControlStateNormal];
     }
-    if(myControl.currentPage == 3)
+    if(myControl.currentPage == [_imagesArray count] - 1)
     {
         [skipButton setTitle:@"FINISH" forState:UIControlStateNormal];
     }
